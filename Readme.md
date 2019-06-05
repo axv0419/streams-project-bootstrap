@@ -31,15 +31,29 @@ CI aims to provide a framework for facilitating software application rollout in 
 > __CI in action__
 
 
+### 3. Project Setup Guide
 
-Use this project to bootstrap Gradle projects for CI/CD using Google Cloud Build.
 
->> Use a workspace folder such as  `c:\workspace` on windows or  `~/workspace` on unix
+Follow the steps below to bootstrap a Spring Boot microservices project for automated build using Google Cloud Build and automated deployment to Google Kubernetes engine. 
+
+#### Prerequisites
+
+* Use a workspace folder such as  `c:\workspace` on windows or  `~/workspace` on unix
+* IDE such as IntelliJ or VSCode
+* Unix like shell on your laptop. Windows users can use Ubuntu with windows subsystem for Linux
+** Google Cloud SDK
+** kubectl binary
+* Git binary 
+* Slack Account 
+* Maven + Gradle + JDK 1.8 
+
+
+#### Steps
 
 Step 1.
 
 
-Create a Spring boot project using (Spring Initilizer)[https://start.spring.io/]. Download and expand the generated file to your workspace folder.
+Create a Spring boot project using [Spring Initilizer](https://start.spring.io/) . Download and expand the generated file to your workspace folder.
 
 This would be your `project folder`
 
