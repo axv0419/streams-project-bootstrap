@@ -2,11 +2,14 @@
 
 
 <img src="./docs/images/DevOps-2.png" style="width:100%" />
+
 __CI in action__
 
 
 <img src="./docs/images/DevOps-1.png" style="width:100%" />
+
 __CI setup__
+
 Use this project to bootstrap Gradle projects for CI/CD using Google Cloud Build.
 
 >> Use a workspace folder such as  `c:\workspace` on windows or  `~/workspace` on unix
