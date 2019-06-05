@@ -1,7 +1,7 @@
 ## Kafka Project Template
 
 
-<img src="./docs/images/DevOps-2.svg" style="width:100%" />
+<img src="./docs/images/DevOps-2.png" style="width:100%" />
 
 Use this project to bootstrap Gradle projects for CI/CD using Google Cloud Build.
 
