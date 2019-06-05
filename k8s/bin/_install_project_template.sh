@@ -6,7 +6,7 @@ project_config_file="project_config.properties"
 template_git_repo="https://github.com/axv0419/${base_template}.git"
 
 echo "###############################################"
-echo "# OpenShift Project Setup Script"
+echo "# Spring Boot - Kafka - Gradle - GCP Bootstrap"
 echo "###############################################"
 
 export BASE_DIR=$(pwd)

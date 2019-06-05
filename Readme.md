@@ -33,6 +33,7 @@ Bootstrap your project
 ```bash
 > cd ~/workspace/{project folder}
 > bash <(curl -k -s https://raw.githubusercontent.com/axv0419/streams-project-bootstrap/master/k8s/bin/_install_project_template.sh)
+
 ```
 
 Step 4.
