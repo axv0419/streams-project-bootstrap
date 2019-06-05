@@ -118,8 +118,8 @@ EOF
 echo
 echo "###  NOTICE ###"
 echo
-echo Please add required configurations to `${BASE_DIR}/src/main/resources/application.yaml` for develop/test your application locally.
-echo The subsequent setup steps [TBD] will populate the Kubernetes namespace with required configurations.
+echo "Please add required configurations to ** ${BASE_DIR}/src/main/resources/application.yaml ** for develop/test your application locally."
+echo "The subsequent setup steps [TBD] will populate the Kubernetes namespace with required configurations."
 echo
 
 
