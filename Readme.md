@@ -1,6 +1,8 @@
 ## Kafka Project Template
 
 
+<img src="./docs/images/DevOps-2.svg" style="width:100%" />
+
 Use this project to bootstrap Gradle projects for CI/CD using Google Cloud Build.
 
 >> Use a workspace folder such as  `c:\workspace` on windows or  `~/workspace` on unix
