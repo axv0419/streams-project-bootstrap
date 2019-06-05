@@ -1,18 +1,34 @@
 ## Kafka Projects  CI / CD 
 
+This project aims to define the various elements of Continuous delivery process and also provide guidelines for setup and execution of CI/CD process.
 
-### 1. CI Setup
+
+
+
+### 1. CI Overview
 
 <img src="./docs/images/DevOps-1.png" style="width:100%" />
 
-__CI setup__
+> __A CI setup__
+
+CI aims to provide a framework for facilitating software application rollout in a responsive and responsible manner. Pillars of a CI system are.
+
+* Code repository with version control
+* Version controlled applicaiton code and build automation scripts.
+* Well defined and preferably scripted steps for standing up application deployment environments.
+* Automated building of source code to `immutable` deployment images.
+* Automated and Manual test cases with clearly defined acceptence criteria.
+* Automated Build Promotion from one environment to another 
+* CI event notification system which generates  `actionable` events.
+* Auditing system for CI events.
+
 
 
 ### 2. CI / CD Execution
 
 <img src="./docs/images/DevOps-2.png" style="width:100%" />
 
-__CI in action__
+> __CI in action__
 
 
 
