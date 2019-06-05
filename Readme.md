@@ -1,14 +1,20 @@
-## Kafka Project Template
+## Kafka Projects  CI / CD 
 
+
+### 1. CI Setup
+
+<img src="./docs/images/DevOps-1.png" style="width:100%" />
+
+__CI setup__
+
+
+### 2. CI / CD Execution
 
 <img src="./docs/images/DevOps-2.png" style="width:100%" />
 
 __CI in action__
 
 
-<img src="./docs/images/DevOps-1.png" style="width:100%" />
-
-__CI setup__
 
 Use this project to bootstrap Gradle projects for CI/CD using Google Cloud Build.
 
