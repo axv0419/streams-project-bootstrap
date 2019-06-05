@@ -50,14 +50,14 @@ Follow the steps below to bootstrap a Spring Boot microservices project for auto
 
 #### Steps
 
-Step 1.
+Step 1. Spring Boot Project
 
 
 Create a Spring boot project using [Spring Initilizer](https://start.spring.io/) . Download and expand the generated file to your workspace folder.
 
 This would be your `project folder`
 
-Step 2. 
+Step 2. CI seed configuration
 
 Create a `project_config.properties` file in your `project folder` with following content.
 ```bash
@@ -72,7 +72,7 @@ KUBE_CLUSTER=kubernetes-p8-integrations-eu-dev-2
 KUBE_REGION=europe-west3
 
 ```
-Step 3.
+Step 3. Create CI artifacts
 
 Bootstrap your project
 ```bash
@@ -81,9 +81,71 @@ Bootstrap your project
 
 ```
 
-Step 4.
+Step 4. configuration for desktop environment
+
+
+Checkin your project into GIT.  
+* Create a Git project
+* Synchronyse your project with git repo
+```bash
+> git add .
+> git commit -m "first commit"
+> git remote add origin {GIT PROJECT URL}
+> git push -u origin master
+```
+
+__NOTE - Avoid putting sensitive configuration in GIT__
+
+
+
+Step 5. Setup Kubernetes Resources
+
+> Container Concepts
+* Container Instance is usually a single applicaiton process ( may sometimes also be a group of processes) which run in isolation on a Host machine under the supervision of a container management software such as Docker or Kubernetes.
+* Container Image is a layered filesystem which contains all the executable code for unning a container.
+* Container management system links external storage volumes, Network resources and application configuraiton into the container instance at runtime.
+
+> Kubernetes Concepts
+
+Kubernetes is a feature rich Container management system.
+
+* Namespaces - provide isolation and security for kubernetes deployments.
+* Pod - A logical micro VM that hosts the microservice containers. Pod can have one of more containers. Container within a pod share filesystem and network resources with each other. Containers within a POD can trust each other.
+* deployment - A configuration defining the Pod assembly.
+** Scaling and replicas
+** Resource allocation
+** Health checks
+** Upgrade policies
+** Security etc
+* Service - A means of exposing services of a deployment to outside world in a loadbalanced manner.
+* Persistent Volumes - Kubernetes feature for binding highly available Network storage with Pod instances.
+
+```bash
+> ./k8s/bin/create_k8.sh
+
+```
+Very likely your microservice will need environment specific configuraiton for 
+running in dev cluster.
 
 Edit project specific application.yaml files for various runtime environments under
 `~/workspace/{project folder}/k8s/runtime-config`
 This folder is exempt from Git Checkin.  
-__NOTE - Avoid putting sensitive configuration in GIT__
+
+Create a configuration file named `application.yaml` under the `~/workspace/{project folder}/k8s/runtime-config` folder
+and run the `kubectl create configmap ...` command to register it in kubernetes.
+```bash
+> kubectl create configmap --namespace={KUBE_NAMESPACE} {KUBE_APP_NAME} --from-file={path to application.yaml}
+```
+
+This step will be run against all the target kubernetes instances where the microservice is going to be deployed.
+
+
+
+Step 6. Clean Kubernetes deployment.
+
+A good CI Process should have ability to remove all the runtime resources when not needed.
+
+```bash
+> ./k8s/bin/delete_k8.sh
+
+```
