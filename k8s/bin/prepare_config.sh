@@ -22,6 +22,8 @@ echo .
 echo running from $(pwd)
 echo .
 
+mkdir -p ${BASE_DIR}/k8s/deploy
+
 for f in ${BASE_DIR}/k8s/templates/*.yaml ;
     do
     envsubst < $f > ${BASE_DIR}/k8s/deploy/${f##*/} ;

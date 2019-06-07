@@ -41,14 +41,14 @@ Follow the steps below to bootstrap a Spring Boot microservices project for auto
 * Use a workspace folder such as  `c:\workspace` on windows or  `~/workspace` on unix
 * IDE such as IntelliJ or VSCode
 * Unix like shell on your laptop. Windows users can use Ubuntu with windows subsystem for Linux
-** Google Cloud SDK
-** kubectl binary
+    * Google Cloud SDK
+    * kubectl binary
 * Git binary 
 * Slack Account 
 * Maven + Gradle + JDK 1.8 
 
 
-#### Steps
+### Steps
 
 Step 1. Spring Boot Project
 
@@ -112,11 +112,11 @@ Kubernetes is a feature rich Container management system.
 * Namespaces - provide isolation and security for kubernetes deployments.
 * Pod - A logical micro VM that hosts the microservice containers. Pod can have one of more containers. Container within a pod share filesystem and network resources with each other. Containers within a POD can trust each other.
 * deployment - A configuration defining the Pod assembly.
-** Scaling and replicas
-** Resource allocation
-** Health checks
-** Upgrade policies
-** Security etc
+    * Scaling and replicas
+    * Resource allocation
+    * Health checks
+    * Upgrade policies
+    * Security etc
 * Service - A means of exposing services of a deployment to outside world in a loadbalanced manner.
 * Persistent Volumes - Kubernetes feature for binding highly available Network storage with Pod instances.
 
@@ -139,9 +139,20 @@ and run the `kubectl create configmap ...` command to register it in kubernetes.
 
 This step will be run against all the target kubernetes instances where the microservice is going to be deployed.
 
+Step 6. Build Trigger.
 
+Create Google Cloud build trigger
 
-Step 6. Clean Kubernetes deployment.
+Give permission to Google Cloud Build to deploy the app to GKE.
+
+```
+PROJECT_NUMBER="$(gcloud projects describe ${PROJECT_ID} --format='get(projectNumber)')"
+gcloud projects add-iam-policy-binding ${PROJECT_NUMBER} \
+    --member=serviceAccount:${PROJECT_NUMBER}@cloudbuild.gserviceaccount.com \
+    --role=roles/container.developer
+```
+
+Step 7. Clean Kubernetes deployment.
 
 A good CI Process should have ability to remove all the runtime resources when not needed.
 
